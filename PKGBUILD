@@ -27,6 +27,16 @@
 
 _pkg=pure-eval
 _Pkg=pure_eval
+_py="python"
+_pyver="$( \
+  "${_py}" \
+    -V | \
+    awk \
+      '{print $2}')"
+_pymajver="${_pyver%.*}"
+_pyminver="${_pymajver#*.}"
+_pynextver="${_pymajver%.*}.$(( \
+  ${_pyminver} + 1))"
 pkgname="${_py}-${_pkg}"
 pkgver=0.2.3
 pkgrel=2
